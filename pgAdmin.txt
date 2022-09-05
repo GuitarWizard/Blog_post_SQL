@@ -1,3 +1,4 @@
+-- note: the following was executed in pgAdmin4 PostgreSQL
 create table site_users(
    user_id varchar unique not null,
    primary key (user_id),
