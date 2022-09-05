@@ -1,0 +1,36 @@
+create table site_users(
+   user_id varchar unique not null,
+   primary key (user_id),
+   user_name varchar not null,
+   email varchar not null,
+   phone int not null,
+   DOB int not null,
+   password varchar not null
+);
+-- in the above query to generate the first table - the user_id is a unique identifier to each blog user, it is used by the database to
+-- identify the user account, and is set up as a primary key to be utilized in the user_activity table.
+-- The second item, user_name, is the display name. This does not have to be unique for allow flexibility for people with the same name
+-- email address, for the user's contact information
+-- phone number as an int to store numerical digits for account verification
+-- Date of Birth to store the numerical values for MMDDYYYY.
+-- finally user password 
+-- All entry fields are mandatory
+
+create table user_activity(
+    post_head_id varchar unique not null,
+    post_id varchar unique not null,
+    user_id varchar REFERENCES site_users(user_id),
+    post_date timestamp not null,
+    post_content varchar(280) not null
+)
+
+-- in the user_activity table the following columns were created:
+-- post_head_id: a unique identifier string to associate with the first posting in a comment chain. The post_head_id may be identical
+-- to the post_id in cases where the user's post is the first in a chain of interactions
+-- 
+-- post_id: A unique identifier to the osted comment so that it may be referenced later - must be unique as id's cannot be shared across multiple
+-- user actions
+-- 
+-- user_id - referenced from the site_user's table. This is used to tie the post_id to the specific user that created it.
+-- post_date - the time that the post was made
+-- post_content - the text string that was posted/tweeted, up to 280 characters. 
