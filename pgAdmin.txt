@@ -29,7 +29,7 @@ create table user_activity(
 -- to the post_id in cases where the user's post is the first in a chain of interactions
 -- 
 -- post_id: A unique identifier to the osted comment so that it may be referenced later - must be unique as id's cannot be shared across multiple
--- user actions
+-- user actions. NOTE: "Post" would be the same as "comments" in this context
 -- 
 -- user_id - referenced from the site_user's table. This is used to tie the post_id to the specific user that created it.
 -- post_date - the time that the post was made
